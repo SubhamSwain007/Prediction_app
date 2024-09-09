@@ -370,7 +370,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         Y_pred_A=knn.predict(X_test_A)
         accuracy=accuracy_score(Y_test_A,Y_pred_A)
         # print(f"Accuracy: {accuracy}")
-        maths=int(st.number_input("please enter your maths marks :"))
+        maths=int(st.number_input("please enter your maths marks :",key="Arts_maths_input"))
         design=int(st.number_input("please enter your design marks :"))
         creativity=int(st.number_input("please enter your creativity marks :"))
         management=int(st.number_input("please enter your management marks :"))
