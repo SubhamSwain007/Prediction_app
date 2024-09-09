@@ -1,5 +1,26 @@
 import streamlit as st
 import sklearn
+
+# Inject JavaScript globally to handle Enter key and focus on the next input
+st.components.v1.html(
+    """
+    <script>
+    const inputs = document.querySelectorAll("input[type='number'], input[type='text']");
+    inputs.forEach((input, index) => {
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // prevent the default action (form submission)
+                const nextInput = inputs[index + 1];
+                if (nextInput) {
+                    nextInput.focus(); // move to the next input box
+                }
+            }
+        });
+    });
+    </script>
+    """,
+    height=0,  # No need for a visible component
+)
 st.title("wellcome to app") # title hello
 st.header("Path predtiction") # also have sub header
 st.info("This will help you to find best carrer ta suits you")
@@ -351,30 +372,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         knn.fit(X_train_C,Y_train_C)
         Y_pred_C=knn.predict(X_test_C)
         accuracy=accuracy_score(Y_test_C,Y_pred_C)
-        print(f"Accuracy: {accuracy}")
-        import streamlit as st
-        
-        # Inject custom JavaScript to handle Enter key press and move to next input
-        st.components.v1.html(
-            """
-            <script>
-            const inputs = document.querySelectorAll("input[type='number'], input[type='text']");
-            inputs.forEach((input, index) => {
-                input.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter') {
-                        event.preventDefault(); // prevent the default action (form submission)
-                        const nextInput = inputs[index + 1];
-                        if (nextInput) {
-                            nextInput.focus(); // move to the next input box
-                        }
-                    }
-                });
-            });
-            </script>
-            """,
-            height=0,  # No need for a visible component
-        )
-        
+        print(f"Accuracy: {accuracy}")      
         # Streamlit input fields
         maths = st.number_input("Enter your maths marks:", key="maths_input")
         finance = st.number_input("Enter your finance marks:", key="finance_input")
