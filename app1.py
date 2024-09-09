@@ -337,7 +337,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         Y_pred_S=knn.predict(m_i_reshaped)
         if Y_pred_S[0]==1:
             st.markdown("# JEE will be best for you")
-        else:
+        elif Y_pred_S[0]==0:
             st.markdown("# NEET will be best for you")
 
      elif 'commerce' or 'Com' in stream :
