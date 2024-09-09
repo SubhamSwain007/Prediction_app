@@ -338,7 +338,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         if Y_pred_S[0]==1:
             st.markdown("# JEE will be best for you")
         elif Y_pred_S[0]!=1:
-            st.markdown("# NEET will be best for you")
+            st.write(" NEET will be best for you")
 
      elif 'commerce' or 'Com' in stream :
         X_train_C,X_test_C,Y_train_C,Y_test_C=train_test_split(X_C,Y_C,test_size=0.3,random_state=1)
