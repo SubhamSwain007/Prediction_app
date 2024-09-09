@@ -351,7 +351,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         Y_pred_C=knn.predict(X_test_C)
         accuracy=accuracy_score(Y_test_C,Y_pred_C)
         print(f"Accuracy: {accuracy}")
-        maths=int(st.number_input("please enter your maths marks :"))
+        maths=st.number_input("please enter your maths marks :")
         finance=int(st.number_input("please enter your finance marks :"))
         accounting=int(st.number_input("please enter your accounting marks :"))
         economics=int(st.number_input("please enter your economics marks :"))
