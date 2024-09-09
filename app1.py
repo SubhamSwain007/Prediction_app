@@ -360,7 +360,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         m_i_reshaped = np.array(m_i_c).reshape(1, -1)
         Y_pred_C=knn.predict(m_i_reshaped)
         st.write(Y_pred_C)
-    elif 'rt' in stream :
+    if 'rt' in stream :
         X_train_A,X_test_A,Y_train_A,Y_test_A=train_test_split(X_A,Y_A,test_size=0.4,random_state=119)
         Scaler=StandardScaler()
         X_train_A=Scaler.fit_transform(X_train_A)
