@@ -1,5 +1,5 @@
 import streamlit as st
-
+import sklearn
 st.title("wellcome to app") # title hello
 st.header("Path predtiction") # also have sub header
 st.info("This will help you to find best carrer ta suits you")
