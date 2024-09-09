@@ -314,7 +314,7 @@ if '12' in last_exam or 'twelve' in last_exam:
     last_exam=12
     if last_exam==12:
      stream=st.text_input("in which stream you were in 12th (Arts/science/commerce) :")
-     if 'science' in stream :
+     if 'science' or 'Sci' in stream :
         X_train_S,X_test_S,Y_train_S,Y_test_S=train_test_split(X_S,Y_S,test_size=0.3,random_state=1)
         scaler = StandardScaler()
         X_train_S = scaler.fit_transform(X_train_S)
@@ -340,7 +340,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         else:
             st.markdown("# NEET will be best for you")
 
-     if 'commerce' in stream :
+     if 'commerce' or 'Com' in stream :
         X_train_C,X_test_C,Y_train_C,Y_test_C=train_test_split(X_C,Y_C,test_size=0.3,random_state=1)
         Scaler=StandardScaler()
         X_train_C=Scaler.fit_transform(X_train_C)
@@ -359,7 +359,7 @@ if '12' in last_exam or 'twelve' in last_exam:
         m_i_reshaped = np.array(m_i_c).reshape(1, -1)
         Y_pred_C=knn.predict(m_i_reshaped)
         st.write(Y_pred_C)
-    if 'art' in stream :
+    if 'art' or 'Art' in stream :
         X_train_A,X_test_A,Y_train_A,Y_test_A=train_test_split(X_A,Y_A,test_size=0.4,random_state=119)
         Scaler=StandardScaler()
         X_train_A=Scaler.fit_transform(X_train_A)
