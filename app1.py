@@ -352,10 +352,39 @@ if '12' in last_exam or 'twelve' in last_exam:
         Y_pred_C=knn.predict(X_test_C)
         accuracy=accuracy_score(Y_test_C,Y_pred_C)
         print(f"Accuracy: {accuracy}")
-        maths = st.number_input("Please enter your maths marks:", key="maths_input")
-        finance = st.number_input("Please enter your finance marks:", key="finance_input")
-        accounting = st.number_input("Please enter your accounting marks:", key="accounting_input")
-        economics = st.number_input("Please enter your economics marks:", key="economics_input")
+        import streamlit as st
+        
+        # Inject custom JavaScript to handle Enter key press and move to next input
+        st.components.v1.html(
+            """
+            <script>
+            const inputs = document.querySelectorAll("input[type='number'], input[type='text']");
+            inputs.forEach((input, index) => {
+                input.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // prevent the default action (form submission)
+                        const nextInput = inputs[index + 1];
+                        if (nextInput) {
+                            nextInput.focus(); // move to the next input box
+                        }
+                    }
+                });
+            });
+            </script>
+            """,
+            height=0,  # No need for a visible component
+        )
+        
+        # Streamlit input fields
+        maths = st.number_input("Enter your maths marks:", key="maths_input")
+        finance = st.number_input("Enter your finance marks:", key="finance_input")
+        accounting = st.number_input("Enter your accounting marks:", key="accounting_input")
+        economics = st.number_input("Enter your economics marks:", key="economics_input")
+
+        # maths = st.number_input("Please enter your maths marks:", key="maths_input")
+        # finance = st.number_input("Please enter your finance marks:", key="finance_input")
+        # accounting = st.number_input("Please enter your accounting marks:", key="accounting_input")
+        # economics = st.number_input("Please enter your economics marks:", key="economics_input")
         m_i_c=[maths,finance,accounting,economics]
         m_i_reshaped = np.array(m_i_c).reshape(1, -1)
         Y_pred_C=knn.predict(m_i_reshaped)
