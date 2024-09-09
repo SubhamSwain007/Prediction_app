@@ -21,9 +21,9 @@ st.components.v1.html(
     """,
     height=0,  # No need for a visible component
 )
-st.title("wellcome to app") # title hello
+st.title("welcome to app") # title hello
 st.header("Path predtiction") # also have sub header
-st.info("This will help you to find best carrer ta suits you")
+st.info("This will help you to find best career ta suits you")
 a='enter your name :'
 
 
