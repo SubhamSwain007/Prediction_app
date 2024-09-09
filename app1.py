@@ -337,8 +337,9 @@ if '12' in last_exam or 'twelve' in last_exam:
         Y_pred_S=knn.predict(m_i_reshaped)
         if Y_pred_S[0]==1:
             st.markdown("# JEE will be best for you")
-        else if Y_pred_S[0]!=1:
-            st.write(" NEET will be best for you")
+        else:
+            if Y_pred_S[0]!=1:
+               st.write(" NEET will be best for you")
 
      elif 'omm'  in stream :
         X_train_C,X_test_C,Y_train_C,Y_test_C=train_test_split(X_C,Y_C,test_size=0.3,random_state=1)
