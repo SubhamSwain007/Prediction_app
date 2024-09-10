@@ -331,7 +331,7 @@ if '10' in last_exam or 'ten' in last_exam:
     Y_pred=knn.predict(m_i_reshaped)
     a=Y_pred[0]
     st.markdown(a)
-if '12' in last_exam or 'twelve' in last_exam:
+if '12' or 'twelve' in last_exam:
     last_exam=12
     if last_exam==12:
      stream=st.text_input("in which stream you were in 12th (Arts/science/commerce) :")
